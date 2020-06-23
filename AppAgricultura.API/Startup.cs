@@ -45,7 +45,7 @@ namespace AppAgricultura.API
             }
 
             // app.UseHttpsRedirection(); Não sera utilizado https por enquanto
-
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseMvc();
         }
     }
