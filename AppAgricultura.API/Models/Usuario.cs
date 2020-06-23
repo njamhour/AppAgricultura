@@ -4,6 +4,7 @@ namespace AppAgricultura.API.Models
     {
         public int Id { get; set; }
         public string Login { get; set; }
-        public string Senha { get; set; }
+        public byte[] SenhaHash { get; set; }
+        public byte[] SenhaSalt { get; set; }
     }
 }

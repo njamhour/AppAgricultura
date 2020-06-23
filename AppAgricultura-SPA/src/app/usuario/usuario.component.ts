@@ -15,8 +15,7 @@ export class UsuarioComponent implements OnInit {
     this.getUsuarios();
   }
 
-  getUsuarios()
-  {
+  getUsuarios() {
     this.http.get('http://localhost:5000/api/values').subscribe(response => {
       this.usuarios = response;
     }, error => {
