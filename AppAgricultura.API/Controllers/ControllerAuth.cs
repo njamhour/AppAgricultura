@@ -24,7 +24,7 @@ namespace AppAgricultura.API.Controllers
             _config = config;
             _repo = repo;
         }
-        [HttpPost("registrar")]
+        [HttpPost("register")]
         public async Task<IActionResult> Registrar(RegistrarUsuarioDto registrarUsuarioDto)
         {
             registrarUsuarioDto.Login = registrarUsuarioDto.Login.ToLower();
