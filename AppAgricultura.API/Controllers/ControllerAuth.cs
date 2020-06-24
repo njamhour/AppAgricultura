@@ -35,7 +35,7 @@ namespace AppAgricultura.API.Controllers
             var CriarUsuario = new Usuario
             {
                 Login = registrarUsuarioDto.Login,
-                Nome = registrarUsuarioDto.Nome
+                Email = registrarUsuarioDto.Email
             };
 
             var usuarioCriado = await _repo.Registrar(CriarUsuario, registrarUsuarioDto.Senha);
