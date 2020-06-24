@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AppAgricultura.API.Data;
 using AppAgricultura.API.Helpers;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -28,16 +29,20 @@ namespace AppAgricultura.API
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(); // Permite acesso do Angular
+            
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString
             ("ConexaoDefault")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddCors(); // Permite acesso do Angular
+            services.AddAutoMapper();
+            //services.AddTransient<Seed>();   
             services.AddScoped<IAuthRepository, AuthRepository>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
